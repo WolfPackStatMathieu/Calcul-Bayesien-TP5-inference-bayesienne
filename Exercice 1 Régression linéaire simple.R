@@ -39,13 +39,13 @@ while(rule){
   xnew[zobs] <- theta_old + dnorm(a -theta_old)/(1 - pnorm(a - theta_old))
   tnew <- mean(xnew)
   iter <- iter +1
-  rule <- (abs(tnew - theta_old) > tol)  (iter < maxiter)
+  rule <- (abs(tnew - theta_old) > tol) & (iter < maxiter)
   theta_old <- tnew
 }
 
 
 #comparaison
-tnew
+tnew ## EM 0.8196956
 
 
 
@@ -62,3 +62,21 @@ for (i in 1:N) {
   
   
 }
+
+
+
+#Exercice 3
+n = 100
+set.seed(123)
+p<-runif(1)
+tau <- rgamma(1, shape = 1, scale = 1/1)
+m <- c(rnorm(1, sd = sqrt(1/tau)), rnorm(1, sd = sqrt(1/tau)))
+z <- rbinom(n, size = 1, prob = p)
+x <- rnorm(n, mean = z*m[2] + (1-z)*m[1], sd = 1) # z * m1 + (1-z) * m0
+
+plot(density(x))
+
+
+
+
+
