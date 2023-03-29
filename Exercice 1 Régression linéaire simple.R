@@ -9,3 +9,4 @@ Xobs[Xobs >=a]<-a
 Xobs
 
 #Question 2
+#Question 3
